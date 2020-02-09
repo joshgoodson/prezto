@@ -10,4 +10,15 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# Load custom zsh configuration
+for file in ${ZDOTDIR:-$HOME}/.yadr/zsh/*(.); source $file
+
+PIP_REQUIRE_VIRTUALENV="true"
+
+gpip() {
+  PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
+gpip3() {
+  PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
+}

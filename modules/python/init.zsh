@@ -35,6 +35,11 @@ if (( ! $+commands[python] && ! $+commands[pyenv] )); then
   return 1
 fi
 
+# Configure virtualenvwrapper settings
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Bunchball
+source /usr/local/bin/virtualenvwrapper.sh
+
 function _python-workon-cwd {
   # Check if this is a Git repo
   local GIT_REPO_ROOT=""
